@@ -148,8 +148,6 @@ function computeOptimal(size) {
 			largestInd.push(i);
 		}
 	}
-	console.log(groupTotal);
-	console.log(largestInd);
 	if (groupSize == 1) {
 	largestInd.forEach(function(index) {
 			highlight(tdFromIndex(index),'winner');
