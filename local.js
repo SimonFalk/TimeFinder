@@ -121,6 +121,10 @@ function savePost() {
 }
 
 function computeOptimal(size) {
+	let radio1 = document.getElementById("radio1");
+	let radio2 = document.getElementById("radio2");
+	let groupSize = Number(radio1.checked) + 2*Number(radio2.checked);
+
 	if (localStorage.getItem('issues') == "[]") {
     	alert('No submissions made yet!');
     	return
@@ -129,16 +133,34 @@ function computeOptimal(size) {
 	let total = issues.total;
 
 	// Find largest element in list
-	let largest = {index: null, value: 0 }
+	let largestVal = [0];
+	let largestInd = [];
+	let groupTotal = total
 	for (let i=0;i<total.length;i++){
-		if (total[i]>largest.value) {
-			largest={
-				index:i, value:total[i]
-			}
+		for (let j=1;j<groupSize;j++) {
+			groupTotal[i] += total[i+j];
+		}
+		if (groupTotal[i]>largestVal[0]) {
+			largestVal = [groupTotal[i]];
+			largestInd = [i];
+		} else if (groupTotal[i]==largestVal[0]) {
+			largestVal.push(groupTotal[i]);
+			largestInd.push(i);
 		}
 	}
+	console.log(groupTotal);
+	console.log(largestInd);
+	if (groupSize == 1) {
+	largestInd.forEach(function(index) {
+			highlight(tdFromIndex(index),'winner');
+		})
+	} else {
+		for (let j=0;j<groupSize;j++) {
+			highlight(tdFromIndex(largestInd[0]+j),'winner');	
+		}
+	}
+
 	
-	highlight(tdFromIndex(largest.index),'winner')
 	
 }
 

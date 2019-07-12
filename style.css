@@ -44,6 +44,12 @@ td.thin {
 
 .form-check-label {
 	margin-left: 40px;
+	margin-bottom: 10px;
+}
+
+.radio-inline {
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 h1,h2,h3 {
