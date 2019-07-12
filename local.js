@@ -32,7 +32,6 @@ function highlight(td,cl) {
 function tdFromIndex(index) {
 	let col = Math.floor(index/m) + 1;
 	let row = index%m + 1;
-	console.log(col,row,m)
 	return document.getElementById("myTable").rows[row].cells[col]
 }
 
