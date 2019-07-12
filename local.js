@@ -48,9 +48,9 @@ function gather(save) {
                 cell = table.rows[row].cells[col];
                 if (save == true){
                 	if (invBtn==true) {
-                		localArr.push(Number(cell.classList.contains('occupied')));
+                		localArr.push(Number(!cell.classList.contains('occupied')));
                 	}else{
-                		localArr.push(Number(!cell.classList.contains('free')));
+                		localArr.push(Number(cell.classList.contains('free')));
                 	}
                 	//localArr.push(cell.getAttribute('occupied')); tag version
                 	
@@ -58,6 +58,7 @@ function gather(save) {
             	}
                 cell.classList.remove('occupied');
                 cell.classList.remove('free');
+                cell.classList.remove('winner');
 
             }
         }
@@ -79,9 +80,9 @@ function savePost() {
 		for(var i = 0; i < postArr.length; ++i){
 			count += Boolean(postArr[i]);
 			if (Boolean(postArr[i]) == true) {
-				html +='<td width="1px" class="occupied thin"></td>'
-			} else {
 				html +='<td width="1px" class="free thin"></td>'
+			} else {
+				html +='<td width="1px" class="occupied thin"></td>'
 			}
 	}
   	var post = {
