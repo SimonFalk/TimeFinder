@@ -1,0 +1,52 @@
+.occupied {
+	background-color: red;
+}
+
+.free {
+	background-color: green;
+}
+
+.winner {
+	background-color: lightblue;
+}
+
+.mystyle {
+	color: red;
+}
+
+#postTable {
+	visibility: hidden;
+}
+
+.isHidden {
+	display: none;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+
+}
+
+td.thin {
+  filter: brightness(200%);
+  filter: grayscale(50%);
+  filter: opacity(50%);
+  white-space: nowrap;
+  width: 1%;
+
+}
+
+.form-check-label {
+	margin-left: 40px;
+}
+
+h1,h2,h3 {
+	text-align: center;
+	padding:10px;
+}
