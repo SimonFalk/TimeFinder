@@ -22,14 +22,19 @@
 	display: none;
 }
 
+#calendar {
+	margin-top: 10px;
+}
+
 table {
 	border-collapse: collapse;
 	width: 100%;
+	text-align: center;
 }
 
 th {
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  	border-top: 1px solid gray;
+  	border-bottom: 1px solid gray;
 
 }
 
@@ -51,6 +56,7 @@ td.thin {
 	margin-left: 15px;
 	margin-right: 15px;
 }
+
 
 h1,h2,h3 {
 	text-align: center;

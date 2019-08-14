@@ -20,7 +20,7 @@
 					<a class="nav-link" href="#" onclick="computeOptimal()">Get optimal time</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#" onclick="about()">About</a>
+					<a class="nav-link" href="#" onclick="about()">About the tool</a>
 				</li>
 		  </ul>
 
@@ -30,12 +30,12 @@
 		<div class="col-sm-8">
 			<div class="jumbotron text-center" style="margin-bottom:0">
 				<h1>Time Finder</h1>
-				<p>Choose your free time in the calendar and enter your name below.</p> 
+				<p>Select your free time in the calendar and enter your name below.</p> 
 			</div>
 			<div id="formBig">
-			<table id="myTable" class="table table-bordered">
+			<table id="calendar" class="table table-bordered">
 				<thead>
-				  <tr>
+					<tr>
 				  		<th></th>
 						<th>Mon</th>
 						<th>Tue</th>
@@ -90,7 +90,7 @@
 				</tbody>
 			</table>
 			<form id="occForm">
-				<div class="custom-control custom-radio custom-control-inline">
+				<div hidden class="custom-control custom-radio custom-control-inline">
 				  	<input type="radio" name="optradio" id="radio1" checked>
 				  	<label class="radio-inline">1 hour</label>
 					<input type="radio" name="optradio" id="radio2">
@@ -107,7 +107,7 @@
 			<button type="button" class="btn btn-outline-warning" onclick="resetSpace()">Reset</button>
 
 			 <label class="form-check-label">
-    			<input type="checkbox" class="form-check-input" value="" id="checkbox">Select busy time
+    			<input type="checkbox" class="form-check-input" value="" id="checkbox">Select when busy instead
 			</label>
 
 			</form>
@@ -127,7 +127,7 @@
 					<tr>
 				  		<th width="20%">Name</th>
 						<th width="20%">Free slots</th>
-						<th width="60%" id="scheduleHead">Schedule</th>
+						<th width="60%" id="scheduleHead" colspan="28">Schedule</th>
 				  	</tr>
 				</thead>
 					<tbody id="postList">
