@@ -26,6 +26,10 @@
 	margin-top: 10px;
 }
 
+.input-group, .custom-radio {
+	width: 100%;
+}
+
 table {
 	border-collapse: collapse;
 	width: 100%;
@@ -54,8 +58,9 @@ td.thin {
 
 .radio-inline {
 	margin-left: 15px;
-	margin-right: 15px;
+	margin-right: 45px;
 }
+
 
 
 h1,h2,h3 {
