@@ -1,16 +1,13 @@
 class Page {
 	constructor() {
 		this.currentPage = 1;
-		console.log("page created")
 	}
 
-	switchPage(event) {
+	handleEvent(event) {
+		if (event.type != 'click') return;
 		let selectedPage = event.target.closest('a').id[3];
-		console.log(selectedPage)
-		console.log(this)
 		
 		if (this.currentPage != selectedPage) {
-			console.log('hej')
 			// Change content, but only if the page is not already open
 			if (selectedPage!=2) {
 			document.getElementById("aboutP").classList.toggle('isHidden');
@@ -212,7 +209,8 @@ let mainCal = new Calendar(document.getElementById('calendar'));
 let mainStor = new Storage();
 let mainList = new List(document.getElementById('postList'))
 
-nav.addEventListener('click',page.switchPage);
+nav1.addEventListener('click',page);
+nav3.addEventListener('click',page);
 
 nav2.addEventListener('click',function resultView(e) {
 	// Highlight the most available cells
