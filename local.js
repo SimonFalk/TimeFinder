@@ -203,7 +203,7 @@ class List {
 
 	add(name,count,html) {
 		if (name == "") name = "No name";
-		this._elem.innerHTML += '<tr><td>'+name+'</td><td>'+count+'</td>'+html+'</tr>';
+		this._elem.innerHTML += '<tr><td>'+name+'</td>'+html+'</tr>';
 		this._elem.parentElement.style.visibility = "visible";
 	}
 
