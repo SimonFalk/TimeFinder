@@ -1,3 +1,7 @@
+.firstslot {
+	border-left: 1px solid black;
+}
+
 .occupied {
 	background-color: red;
 }
