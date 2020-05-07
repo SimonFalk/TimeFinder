@@ -77,25 +77,34 @@ class Calendar {
 	}
 
 	getOverview() {
-		// returns a html code of cells marked according to array of free slots
+		// returns a html code that represents the calendar entry graphically, with green and red slots
+		// supposed to be shown in the results table
 		let array = this.getBinArray()
 		let overviewHtml = "";
+		let count = 0;
 		for(let state of array) {
 			overviewHtml += '<td width="1px" class="'
-			if (state==false) {
-				overviewHtml += 'occupied'
-			} else {
-				overviewHtml += 'free'
+			if (count%n == 0) {
+				// first slot of the day
+				overviewHtml += 'firstslot '
 			}
-			overviewHtml += ' thin"></td>'
+			if (state==false) {
+				overviewHtml += 'occupied '
+			} else {
+				overviewHtml += 'free '
+			}
+			overviewHtml += 'thin"></td>'
+			count++;
 		}
 		return overviewHtml
 	}
+	
 	clean(elem) {
+		// takes away the highlight property from the selected element 
 		if (elem.tagName == 'TD') {
 			elem.classList.remove('occupied');
-    		elem.classList.remove('free');
-    		elem.classList.remove('winner');
+    			elem.classList.remove('free');
+    			elem.classList.remove('winner');
 		} else {
 			for (let subElem of elem.childNodes) {
 				this.clean(subElem)
@@ -103,6 +112,7 @@ class Calendar {
 		}
 	}
 	cleanAll() {
+		// clears the calendar
 		this.clean(this._elem)
 	}
 }
