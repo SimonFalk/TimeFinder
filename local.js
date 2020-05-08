@@ -26,8 +26,11 @@ class Page {
 class Calendar {
 	constructor(elem) {
 		this._elem = elem;
-		this.m = elem.rows.length - 1
-		this.n = elem.rows[0].cells.length -1
+		// Number of hours slots in calendar
+		this.hours = elem.rows.length - 1;
+		// Number of days in the calendar
+		this.days = elem.rows[0].cells.length -1;
+		console.log(this.hours);
 		elem.addEventListener('click',this.selectSlot);
 	}
 
@@ -51,16 +54,16 @@ class Calendar {
 		// Returns the td element with the specified index
 		// Cells are ordered first by column then by row (same dates first)
 
-		let col = Math.floor(index/this.m) + 1;
-		let row = index%this.m + 1;
+		let col = Math.floor(index/this.hours) + 1;
+		let row = index%this.hours + 1;
 		console.log(this._elem.rows[row].cells[col])
 		return this._elem.rows[row].cells[col];
 	}
 
 	getBinArray() {
 		// returns the binary array of free slots
-		let selectGreen = document.getElementById("radioFree").checked;
-		console.log(selectGreen);
+		let selectGreen = document.getElementById("radioFree").checked; 
+		// true means free time is selected, false means busy time is selected
 		let localArr = [];
 	    for (var col = 1; col < this._elem.rows[0].cells.length; col++) {
 	        for (var row = 1; row < this._elem.rows.length; row++){
@@ -84,7 +87,7 @@ class Calendar {
 		let count = 0;
 		for(let state of array) {
 			overviewHtml += '<td width="1px" class="'
-			if (count%n == 0) {
+			if (count%this.hours == 0) {
 				// first slot of the day
 				overviewHtml += 'firstslot '
 			}
